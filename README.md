@@ -20,3 +20,11 @@ spring.profiles.active = local
 @Component
 public class CondoleMailSender implements JavaMailSender {
 ~~~
+* springSecurity 를 사용할 경우 http 메서드와 url permit 해줘도 타 사이트 등에서 무분별한 데이터를 받지않고
+본인의 사이트임을 알 수 있게 자동적을 csrf토큰을 생성하여 확인을 한다. 테스트시에도 없으면 403 에러남
+
+* 회원가입 패스워드
+  * 평문 저장 절대 안됨 반드시 해싱하여 저장 (단방향)
+  * salt 사용 이유 해싱되는 값을 보고 추정하여 맞출수 잇기에 salt(첨가)값을 첨가하여 사용함
+
+* 보안관련 유효성 검증이 실패 이유는 모호하게 알려주는게 좋다.
